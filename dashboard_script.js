@@ -478,7 +478,7 @@ function logout() {
 
 
     window.location.href =
-        "index.html";
+        "index2.html";
 
 }
 
