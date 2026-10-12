@@ -57,7 +57,7 @@ document.getElementById("teacherRegisterBtn").addEventListener("click", async fu
 
         alert("Teacher Registered Successfully");
 
-        window.location.href = "index.html";
+        window.location.href = "index2.html";
 
     } catch (error) {
 

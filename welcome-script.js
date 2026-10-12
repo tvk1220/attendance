@@ -44,7 +44,7 @@ document.getElementById("loginBtn").onclick = async function () {
 
     if (found) {
     localStorage.setItem("loggedInCollegeCode", collegeCode);
-    window.location.href = "index.html";
+    window.location.href = "index2.html";
 }
     else {
         alert("Please enter correct college details");

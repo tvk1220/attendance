@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Smart Attendance Management System</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Inter Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="bg-slate-50 min-h-screen flex items-center justify-center p-4">
+
+
+<!-- ====================================================== -->
+<!-- MAIN CONTAINER -->
+<!-- ====================================================== -->
+
+<div
+    class="bg-white rounded-2xl shadow-sm border border-slate-100 max-w-5xl w-full p-8 md:p-12"
+>
+
+
+    <!-- ================================================== -->
+    <!-- HEADER -->
+    <!-- ================================================== -->
+
+    <div class="text-center mb-10">
+
+        <h1
+            class="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight"
+        >
+            Smart Attendance Management System
+        </h1>
+
+
+        <!-- ================================================== -->
+        <!-- COLLEGE DETAILS -->
+        <!-- ================================================== -->
+
+        <div
+            id="collegeInfo"
+            class="hidden bg-blue-50 border border-blue-200 rounded-xl p-5 mt-6 mb-6 text-center"
+        >
+
+            <h2
+                id="collegeNameTitle"
+                class="text-2xl font-bold text-red-700"
+            >
+            </h2>
+
+
+            <p
+                id="collegeCodeTitle"
+                class="text-sm font-semibold text-slate-600 mt-2"
+            >
+            </p>
+
+
+            <p
+                id="collegeYearTitle"
+                class="text-sm font-semibold text-slate-600 mt-1"
+            >
+            </p>
+
+        </div>
+
+
+        <div
+            class="flex items-center justify-center gap-4 mt-3"
+        >
+
+            <span class="h-[1px] w-12 bg-blue-400"></span>
+
+            <p class="text-sm md:text-base text-slate-500 font-medium">
+                Please choose your login type to continue
+            </p>
+
+            <span class="h-[1px] w-12 bg-blue-400"></span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================== -->
+    <!-- LOGIN CARDS -->
+    <!-- ================================================== -->
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+
+        <!-- ================================================== -->
+        <!-- STUDENT LOGIN -->
+        <!-- ================================================== -->
+
+        <div
+            class="bg-[#f4f8ff] border border-blue-100 rounded-2xl p-6 md:p-8"
+        >
+
+            <div class="text-center mb-6">
+
+                <div
+                    class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3 shadow-md"
+                >
+
+                    <i class="fa-solid fa-user-graduate"></i>
+
+                </div>
+
+
+                <h2 class="text-xl font-bold text-blue-700">
+                    Student Login
+                </h2>
+
+
+                <p class="text-xs text-slate-500 mt-1">
+                    Login using your Register Number and Date of Birth
+                </p>
+
+            </div>
+
+
+            <!-- STUDENT LOGIN FORM -->
+
+            <form
+                id="studentForm"
+                class="space-y-4"
+            >
+
+
+                <!-- REGISTER NUMBER -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                        Register Number
+                    </label>
+
+
+                    <div class="relative">
+
+                        <span
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+                        >
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="regNo"
+                            placeholder="Enter your register number"
+                            required
+                            class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DOB -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                        Date of Birth
+                    </label>
+
+
+                    <div class="relative">
+
+                        <span
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+                        >
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </span>
+
+
+                        <input
+                            type="date"
+                            id="dob"
+                            required
+                            class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm mt-6"
+                >
+
+                    <i class="fa-solid fa-lock text-xs"></i>
+
+                    Login
+
+                </button>
+
+
+
+                <!-- STUDENT REGISTER -->
+
+                <button
+                    type="button"
+                    onclick="openStudentRegisterPopup()"
+                    class="w-full border border-blue-600 text-blue-700 hover:bg-blue-50 font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm mt-3"
+                >
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Student Register
+
+                </button>
+
+            </form>
+
+
+            <!-- INFO -->
+
+            <div
+                class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-3 flex gap-3 items-start"
+            >
+
+                <i
+                    class="fa-solid fa-circle-info text-blue-500 mt-0.5"
+                ></i>
+
+
+                <p class="text-xs text-blue-800 leading-relaxed">
+
+                    Your Register Number and Date of Birth must match
+                    the details saved in the records.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================== -->
+        <!-- TEACHER LOGIN -->
+        <!-- ================================================== -->
+
+        <div
+            class="bg-[#f5faf6] border border-green-100 rounded-2xl p-6 md:p-8"
+        >
+
+            <div class="text-center mb-6">
+
+                <div
+                    class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-3 shadow-md"
+                >
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                </div>
+
+
+                <h2 class="text-xl font-bold text-green-700">
+                    Teacher / Staff Login
+                </h2>
+
+
+                <p class="text-xs text-slate-500 mt-1">
+                    Login using your Department and Password
+                </p>
+
+            </div>
+
+
+
+            <!-- TEACHER FORM -->
+
+            <form
+                id="teacherForm"
+                class="space-y-4"
+            >
+
+
+                <!-- DEPARTMENT -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                        Department
+                    </label>
+
+
+                    <div class="relative">
+
+                        <span
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+                        >
+
+                            <i class="fa-solid fa-building-columns"></i>
+
+                        </span>
+
+
+                        <select
+                            id="deptSelect"
+                            required
+                            class="w-full pl-10 pr-10 py-2.5 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+
+                            <option value="" disabled selected>
+                                Select Department
+                            </option>
+
+                            <option value="MCA">
+                                MCA
+                            </option>
+
+                            <option value="MBA">
+                                MBA
+                            </option>
+
+                            <option value="MSC">
+                                M.Sc
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                        Password
+                    </label>
+
+
+                    <div class="relative">
+
+                        <span
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+                        >
+
+                            <i class="fa-solid fa-lock"></i>
+
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="teacherPassword"
+                            placeholder="Enter Password"
+                            required
+                            class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- INFO -->
+
+                <div
+                    class="bg-green-50 border border-green-200 text-green-800 rounded-lg p-2.5 flex items-center gap-2 text-xs"
+                >
+
+                    <i class="fa-regular fa-circle-check text-green-600"></i>
+
+                    <span>
+                        Enter Your Department Password
+                    </span>
+
+                </div>
+
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="w-full bg-green-700 hover:bg-green-800 text-white font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm mt-6"
+                >
+
+                    <i class="fa-solid fa-lock text-xs"></i>
+
+                    Login
+
+                </button>
+
+
+
+                <!-- TEACHER REGISTER -->
+
+                <button
+                    type="button"
+                    onclick="window.location.href='teacher-register.html'"
+                    class="w-full border border-green-600 text-green-700 hover:bg-green-50 font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm mt-3"
+                >
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Teacher Register
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ====================================================== -->
+<!-- STUDENT REGISTER POPUP -->
+<!-- ====================================================== -->
+
+<div
+    id="studentRegisterPopup"
+    class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4"
+>
+
+
+    <div
+        class="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
+    >
+
+
+        <!-- HEADER -->
+
+        <div
+            class="flex items-center justify-between p-5 border-b"
+        >
+
+            <div>
+
+                <h2 class="text-lg font-bold text-slate-800">
+                    Student Registration
+                </h2>
+
+                <p class="text-xs text-slate-500 mt-1">
+                    Enter student details
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="closeStudentRegisterPopup()"
+                class="text-slate-400 hover:text-red-500 text-xl"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form
+            id="studentRegisterForm"
+            class="p-5 space-y-4"
+        >
+
+
+            <!-- DEPARTMENT -->
+
+            <div>
+
+                <label
+                    class="block text-xs font-semibold text-slate-700 mb-2"
+                >
+                    Department
+                </label>
+
+
+                <select
+                    id="registerDepartment"
+                    required
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+
+                    <option value="">
+                        Select Enabled Department
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- REGISTER NUMBER -->
+
+            <div>
+
+                <label
+                    class="block text-xs font-semibold text-slate-700 mb-2"
+                >
+                    Register Number
+                </label>
+
+
+                <input
+                    type="text"
+                    id="registerRegNo"
+                    required
+                    placeholder="Enter Register Number"
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+
+            </div>
+
+
+
+            <!-- NAME -->
+
+            <div>
+
+                <label
+                    class="block text-xs font-semibold text-slate-700 mb-2"
+                >
+                    Student Name
+                </label>
+
+
+                <input
+                    type="text"
+                    id="registerStudentName"
+                    required
+                    placeholder="Enter Student Name"
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div>
+
+                <label
+                    class="block text-xs font-semibold text-slate-700 mb-2"
+                >
+                    Parent Phone Number
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    required
+                    maxlength="10"
+                    inputmode="numeric"
+                    placeholder="Enter 10 digit phone number"
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+
+            </div>
+
+
+
+            <!-- DOB -->
+
+            <div>
+
+                <label
+                    class="block text-xs font-semibold text-slate-700 mb-2"
+                >
+                    Date of Birth
+                </label>
+
+
+                <input
+                    type="date"
+                    id="registerDob"
+                    required
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+
+            </div>
+
+
+
+            <!-- YEAR + SEMESTER -->
+
+            <div class="grid grid-cols-2 gap-3">
+
+
+                <!-- YEAR -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-semibold text-slate-700 mb-2"
+                    >
+                        Year
+                    </label>
+
+
+                    <select
+                        id="registerYear"
+                        required
+                        class="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm bg-white"
+                    >
+
+                        <option value="">
+                            Select Year
+                        </option>
+
+                        <option value="1st Year">
+                            1st Year
+                        </option>
+
+                        <option value="2nd Year">
+                            2nd Year
+                        </option>
+
+                        <option value="3rd Year">
+                            3rd Year
+                        </option>
+
+                        <option value="4th Year">
+                            4th Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- SEMESTER -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-semibold text-slate-700 mb-2"
+                    >
+                        Semester
+                    </label>
+
+
+                    <select
+                        id="registerSemester"
+                        required
+                        class="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm bg-white"
+                    >
+
+                        <option value="">
+                            Select Semester
+                        </option>
+
+                        <option value="1st Semester">
+                            1st Semester
+                        </option>
+
+                        <option value="2nd Semester">
+                            2nd Semester
+                        </option>
+
+                        <option value="3rd Semester">
+                            3rd Semester
+                        </option>
+
+                        <option value="4th Semester">
+                            4th Semester
+                        </option>
+
+                        <option value="5th Semester">
+                            5th Semester
+                        </option>
+
+                        <option value="6th Semester">
+                            6th Semester
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REGISTER -->
+
+            <button
+                type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg"
+            >
+
+                <i class="fa-solid fa-user-plus mr-2"></i>
+
+                Register Student
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ====================================================== -->
+<!-- SCRIPT -->
+<!-- ====================================================== -->
+
+<script
+    type="module"
+    src="script.js"
+></script>
+
+
+</body>
+
+</html>
