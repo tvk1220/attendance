@@ -1,0 +1,109 @@
+/* ================================
+   SMART ATTENDANCE - GLOBAL STYLE
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    letter-spacing: 0.1px;
+}
+
+/* Main Heading */
+h1 {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+}
+
+/* Section Headings */
+h2 {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+/* Labels */
+label {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+}
+
+/* Input / Select / Button Font */
+input,
+select,
+button {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* Placeholder */
+input::placeholder {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* College Information */
+#collegeInfo {
+    transition: all 0.25s ease;
+}
+
+#collegeNameTitle {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+/* Login Cards */
+.bg-\[\#f4f8ff\],
+.bg-\[\#f5faf6\] {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bg-\[\#f4f8ff\]:hover,
+.bg-\[\#f5faf6\]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+/* Input Focus */
+input:focus,
+select:focus {
+    outline: none;
+}
+
+/* Buttons */
+button {
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+/* Prevent button text selection */
+button {
+    user-select: none;
+}
+
+/* Auto-fill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #1e293b;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #collegeNameTitle {
+        font-size: 20px;
+    }
+}
